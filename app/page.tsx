@@ -5,7 +5,9 @@ export default function Home() {
         <h1 className="text-4xl font-bold">Website Coming Soon</h1>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <p>{new Date().getFullYear()} Heart of the Forest Dramatic Society</p>
+        <p>
+          2024 - {new Date().getFullYear()} Heart of the Forest Dramatic Society
+        </p>
       </footer>
     </div>
   );

@@ -7,7 +7,7 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+RUN npm run build -p 3001
 
 EXPOSE 3001
 

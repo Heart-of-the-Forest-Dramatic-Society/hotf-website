@@ -1,3 +1,5 @@
+import { ModeToggle } from "@/components/theme-toggle";
+
 export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
@@ -9,6 +11,9 @@ export default function Home() {
           2024 - {new Date().getFullYear()} Heart of the Forest Dramatic Society
         </p>
       </footer>
+      <div className="absolute top-4 right-4">
+        <ModeToggle />
+      </div>
     </div>
   );
 }

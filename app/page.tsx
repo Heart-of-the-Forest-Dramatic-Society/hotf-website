@@ -14,13 +14,13 @@ const Home = async () => {
         {/* Hero Section */}
         <HeroSection />
 
-        {/* Tickets Section - TODO: add tickets here */}
+        {/* Tickets Section */}
         <TicketsSection />
 
-        {/* Contact Section - TODO: add contact here */}
+        {/* Contact Section */}
         <ContactSection />
 
-        {/* Footer Section - TODO: add footer here */}
+        {/* Footer Section */}
         <Footer />
       </div>
     </div>

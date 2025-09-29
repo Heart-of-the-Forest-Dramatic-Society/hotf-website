@@ -1,18 +1,30 @@
-export default function Home() {
+import ContactSection from "@/components/contact-section";
+import Footer from "@/components/footer";
+import HeroSection from "@/components/hero-section";
+import Navbar from "@/components/navbar";
+import TicketsSection from "@/components/ticket-section";
+
+const Home = async () => {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center">
-        <h1 className="text-4xl font-bold">Website Coming Soon</h1>
-        <p className="text-lg text-center">
-          We are working hard to bring you a new website. Please check back
-          soon.
-        </p>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <p>
-          2024 - {new Date().getFullYear()} Heart of the Forest Dramatic Society
-        </p>
-      </footer>
+    <div className="h-screen">
+      {/* Home View */}
+      <div className="flex flex-col items-center">
+        <Navbar />
+
+        {/* Hero Section */}
+        <HeroSection />
+
+        {/* Tickets Section - TODO: add tickets here */}
+        <TicketsSection />
+
+        {/* Contact Section - TODO: add contact here */}
+        <ContactSection />
+
+        {/* Footer Section - TODO: add footer here */}
+        <Footer />
+      </div>
     </div>
   );
-}
+};
+
+export default Home;

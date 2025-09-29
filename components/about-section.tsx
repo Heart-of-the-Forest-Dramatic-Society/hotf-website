@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Separator } from "./ui/separator";
 
 const trustees = [
   {
@@ -29,10 +30,14 @@ const AboutUsSection = () => {
             performances in february half term.
           </p>
         </div>
+        <div className="flex flex-col items-center justify-center gap-4">
+          <Separator />
+        </div>
         <div className="flex flex-col items-center justify-center gap-4 mt-10">
           <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl">
             Meet The Team
           </h1>
+
           <div className="flex flex-col items-center justify-center gap-4">
             <h2 className="font-bold text-2xl sm:text-3xl lg:text-4xl">
               Trustees

@@ -44,3 +44,5 @@ next-env.d.ts
 *.sqlite
 *.db
 better-auth_migrations/
+
+lib/db/data/*

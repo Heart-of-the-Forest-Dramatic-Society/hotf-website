@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Check } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function ModeToggle() {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <DropdownMenu>
@@ -25,14 +25,17 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+        <DropdownMenuItem onClick={() => setTheme("light")} className="gap-2">
+          {theme === "light" && <Check className="h-4 w-4" />}
+          <span className={theme !== "light" ? "ml-6" : ""}>Light</span>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+        <DropdownMenuItem onClick={() => setTheme("dark")} className="gap-2">
+          {theme === "dark" && <Check className="h-4 w-4" />}
+          <span className={theme !== "dark" ? "ml-6" : ""}>Dark</span>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+        <DropdownMenuItem onClick={() => setTheme("system")} className="gap-2">
+          {theme === "system" && <Check className="h-4 w-4" />}
+          <span className={theme !== "system" ? "ml-6" : ""}>System</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

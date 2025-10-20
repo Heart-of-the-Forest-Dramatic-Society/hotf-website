@@ -19,9 +19,9 @@ const SignUpPage = async ({
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen max-w-md mx-auto">
-      <div className="flex flex-col items-center justify-center gap-4 border border-gray-200 rounded-md p-4 shadow-md bg-white dark:bg-gray-900 dark:border-gray-800">
-        <h1 className="text-2xl font-bold">Sign Up</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6">
+      <div className="flex flex-col items-center justify-center w-full max-w-md gap-6 border-2 border-gray-200 rounded-lg p-6 sm:p-8 shadow-lg bg-card dark:border-gray-800">
+        <h1 className="text-2xl sm:text-3xl font-bold">Sign Up</h1>
 
         {error && (
           <div className="w-full p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
@@ -85,43 +85,49 @@ const SignUpPage = async ({
               }}
               className="space-y-4 w-full mt-4"
             >
-              <Input
-                type="email"
-                placeholder="Email"
-                className="w-full"
-                required
-                name="email"
-                autoComplete="email"
-              />
               <div className="space-y-2">
-                <label
-                  htmlFor="password"
-                  className="text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
+                <label htmlFor="email" className="text-sm font-medium">
+                  Email
+                </label>
+                <Input
+                  type="email"
+                  id="email"
+                  placeholder="Email"
+                  className="w-full h-11"
+                  required
+                  name="email"
+                  autoComplete="email"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="password" className="text-sm font-medium">
                   Password
                 </label>
                 <Input
                   type="password"
                   id="password"
                   placeholder="Password"
-                  className="w-full"
+                  className="w-full h-11"
                   required
                   name="password"
                   autoComplete="new-password"
                   minLength={8}
                   aria-describedby="password-help"
                 />
-                <p
-                  id="password-help"
-                  className="text-xs text-gray-500 dark:text-gray-400"
-                >
+                <p id="password-help" className="text-xs text-muted-foreground">
                   Minimum 8 characters
                 </p>
               </div>
-              <Button className="w-full">Sign Up</Button>
+              <Button className="w-full h-11">Sign Up</Button>
             </form>
-            <p className="text-sm text-gray-500">
-              <Link href="/sign-in">Already have an account? Sign In</Link>
+            <p className="text-sm text-muted-foreground text-center">
+              Already have an account?{" "}
+              <Link
+                href="/sign-in"
+                className="text-primary hover:underline font-medium"
+              >
+                Sign In
+              </Link>
             </p>
           </div>
         </div>

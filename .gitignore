@@ -46,3 +46,5 @@ next-env.d.ts
 better-auth_migrations/
 
 lib/db/data/*
+
+CLOUDPANEL_DEPLOYMENT.md

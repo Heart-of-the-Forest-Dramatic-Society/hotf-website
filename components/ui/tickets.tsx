@@ -18,9 +18,9 @@ const event: Event = {
   description:
     "A classic tale of a man who steals from the rich and gives to the poor.",
   dates: [
-    "21th February 2026 2pm - 4:30pm",
-    "21th February 2026 6pm - 8:30pm",
-    "22st February 2026 2pm - 4:30pm",
+    "21st February 2026 @2pm - 4:30pm",
+    "21st February 2026 @6pm - 8:30pm",
+    "22nd February 2026 @2pm - 4:30pm",
   ],
   duration: "2 hours 30 minutes including interval",
   venue: "Gresley Old Hall",
@@ -31,51 +31,88 @@ const event: Event = {
 
 const Tickets = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 mb-10 w-full px-4 sm:px-6">
-      <div className="flex flex-col items-center justify-center gap-4 w-full max-w-4xl">
-        <div className="flex flex-col sm:flex-row items-center border p-4 sm:p-6 rounded-lg gap-4 sm:gap-6 shadow-md dark:shadow-gray-800 dark:border-gray-800 hover:shadow-lg transition-shadow duration-600 hover:scale-105 w-full ">
-          <Image
-            src={event.posterSrc}
-            alt={event.posterAlt}
-            width={200}
-            height={200}
-            className="rounded-lg w-32 h-40 sm:w-40 sm:h-60 md:w-56 md:h-84 object-contain"
-          />
-          <div className="flex flex-col items-center sm:items-start justify-between gap-4 w-full h-full text-center sm:text-left">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
-              {event.title}
-            </h2>
-            <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 space-y-2 w-full">
-              <p className="text-sm sm:text-base">{event.description}</p>
+    <div className="flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col items-center gap-8 w-full max-w-5xl">
+        {/* Section Header */}
+        <div className="text-center space-y-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+            Upcoming Show
+          </h2>
+          <p className="text-muted-foreground text-base sm:text-lg">
+            Book your tickets for our next magical performance
+          </p>
+        </div>
 
-              <div>
-                <strong className="text-sm sm:text-base">Dates:</strong>
-                <ul className="mt-1 space-y-1 text-xs sm:text-sm">
+        {/* Event Card */}
+        <div className="flex flex-col md:flex-row items-center lg:items-start gap-6 lg:gap-8 border rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 bg-card w-full">
+          {/* Poster */}
+          <div className="flex-shrink-0">
+            <Image
+              src={event.posterSrc}
+              alt={event.posterAlt}
+              width={256}
+              height={384}
+              className="rounded-xl w-48 h-64 sm:w-56 sm:h-80 lg:w-64 lg:h-96 object-cover shadow-md"
+              priority
+            />
+          </div>
+
+          {/* Event Details */}
+          <div className="flex flex-col gap-5 w-full text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
+              {event.title}
+            </h3>
+
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              {event.description}
+            </p>
+
+            <div className="space-y-4 text-sm sm:text-base">
+              {/* Dates */}
+              <div className="space-y-2">
+                <p className="font-semibold text-base sm:text-lg flex items-center justify-center lg:justify-start gap-2">
+                  <span aria-label="Calendar" role="img">
+                    📅
+                  </span>{" "}
+                  Performance Dates
+                </p>
+                <ul className="space-y-1.5 text-muted-foreground">
                   {event.dates.map((date, index) => (
-                    <li key={index} className="break-words">
+                    <li key={index} className="leading-relaxed">
                       {date}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <p className="text-sm sm:text-base">
-                <strong>Time:</strong> {event.duration}
-              </p>
+              {/* Duration */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 justify-center lg:justify-start">
+                <span className="font-semibold">⏱️ Duration:</span>
+                <span className="text-muted-foreground">{event.duration}</span>
+              </div>
 
-              <p className="text-sm sm:text-base">
-                <strong>Venue:</strong> {event.venue}
-              </p>
+              {/* Venue */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 justify-center lg:justify-start">
+                <span className="font-semibold">📍 Venue:</span>
+                <span className="text-muted-foreground">{event.venue}</span>
+              </div>
 
-              <p className="text-sm sm:text-base">
-                <strong>Price:</strong> {event.price} per person
-              </p>
+              {/* Price */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 justify-center lg:justify-start">
+                <span className="font-semibold">💷 Price:</span>
+                <span className="text-muted-foreground">
+                  {event.price} per person
+                </span>
+              </div>
             </div>
+
+            {/* CTA Button */}
             <Button
-              className="w-full sm:w-auto px-6 py-2 text-base sm:text-lg h-10"
+              className="w-full sm:w-auto sm:self-center lg:self-start h-12 text-base font-medium shadow-sm mt-2"
+              size="lg"
               asChild
             >
-              <Link href="/tickets">Buy Tickets</Link>
+              <Link href="/tickets">Buy Tickets Now</Link>
             </Button>
           </div>
         </div>
